@@ -1,0 +1,30 @@
+{
+  "name": "@zsnout/tailwind",
+  "version": "0.1.0",
+  "description": "A theming style used across all modern zSnout websites.",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsnout/tailwind.git"
+  },
+  "author": "Zachary Sakowitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zsnout/tailwind/issues"
+  },
+  "homepage": "https://github.com/zsnout/tailwind#readme",
+  "devDependencies": {
+    "@types/color-rgba": "^2.1.0",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2"
+  },
+  "prettier": {
+    "semi": false,
+    "proseWrap": "always"
+  },
+  "dependencies": {
+    "color-rgba": "^3.0.0"
+  }
+}
