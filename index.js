@@ -1,8 +1,8 @@
 // @ts-check
 
-const rgba = require("color-rgba")
+import rgba from "color-rgba"
 
-module.exports.zSnoutTheme = () => {
+export function zSnoutTheme() {
   return {
     /** @type {import("tailwindcss/types/config").PluginCreator} */
     handler(api) {
@@ -10,7 +10,7 @@ module.exports.zSnoutTheme = () => {
       const colors = api.theme("colors")
 
       api.addComponents({
-        ".z-theme-arc": {
+        ".z-arc": {
           "--z-bg-body": "var(--arc-palette-background)",
           "--z-bg-body-partial": "var(--arc-palette-background)",
           "--z-bg-body-selected": "var(--arc-palette-cutoutColor)",
@@ -24,7 +24,8 @@ module.exports.zSnoutTheme = () => {
           "--z-border-separator": "var(--arc-background-simple-color)",
           "--z-border-theme-switcher": "var(--z-border)",
 
-          "--z-fa": "var(--arc-palette-foregroundSecondary)",
+          "--z-icon": "var(--arc-palette-foregroundSecondary)",
+          "--icon-fill": "var(--z-icon)",
 
           "--z-ring-focus": "var(--arc-palette-hover)",
 
@@ -77,7 +78,8 @@ module.exports.zSnoutTheme = () => {
                 "--z-border-separator": value[300],
                 "--z-border-theme-switcher": value[200],
 
-                "--z-fa": value[500],
+                "--z-icon": value[500],
+                "--icon-fill": "var(--z-icon)",
 
                 "--z-text": value[600],
                 "--z-text-dimmed": value[400],
@@ -85,7 +87,7 @@ module.exports.zSnoutTheme = () => {
                 "--z-text-subtitle": value[500],
               },
 
-              [".z-focus-light" + key]: {
+              [".z-light-focus-" + key]: {
                 "--z-border-focus": value[500],
                 "--z-ring-focus": value[200],
                 "--z-text-link": value[600],
@@ -107,7 +109,8 @@ module.exports.zSnoutTheme = () => {
                 "--z-border-separator": value[600],
                 "--z-border-theme-switcher": value[800],
 
-                "--z-fa": value[400],
+                "--z-icon": value[400],
+                "--icon-fill": "var(--z-icon)",
 
                 "--z-text": value[300],
                 "--z-text-dimmed": value[500],
@@ -115,7 +118,7 @@ module.exports.zSnoutTheme = () => {
                 "--z-text-subtitle": value[400],
               },
 
-              [".z-focus-dark" + key]: {
+              [".z-dark-focus-" + key]: {
                 "--z-border-focus": value[500],
                 "--z-ring-focus": value[900],
                 "--z-text-link": value[500],
@@ -176,7 +179,7 @@ module.exports.zSnoutTheme = () => {
             padding: "0",
 
             "&::before": {
-              positon: "absolute",
+              position: "absolute",
               left: "50%",
               top: "50%",
               "--tw-translate-x": "-50%",
@@ -203,7 +206,7 @@ module.exports.zSnoutTheme = () => {
               height: "1rem",
               width: "100%",
               cursor: "pointer",
-              rounded: "9999px",
+              "border-radius": "9999px",
               "background-color": "var(--z-bg-body)",
               "transition-property":
                 "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
@@ -215,7 +218,7 @@ module.exports.zSnoutTheme = () => {
               height: "1rem",
               width: "100%",
               cursor: "pointer",
-              rounded: "9999px",
+              "border-radius": "9999px",
               "background-color": "var(--z-bg-body)",
               "transition-property":
                 "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
@@ -361,6 +364,20 @@ module.exports.zSnoutTheme = () => {
           }
         },
       })
+
+      api.matchUtilities(
+        {
+          icon(value) {
+            return { "--icon-fill": value }
+          },
+        },
+        {
+          values: {
+            ...colors,
+            ...api.theme("iconColor"),
+          },
+        },
+      )
     },
 
     /** @type {Partial<import("tailwindcss/types/config").Config>} */
@@ -397,7 +414,7 @@ module.exports.zSnoutTheme = () => {
             "z-border-separator": "var(--z-border-separator)",
             "z-border-theme-switcher": "var(--z-border-theme-switcher)",
 
-            "z-fa": "var(--z-fa)",
+            "z-icon": "var(--z-icon)",
 
             "z-ring-focus": "var(--z-ring-focus)",
 
@@ -423,6 +440,10 @@ module.exports.zSnoutTheme = () => {
             "z-focus": "var(--z-border-focus)",
             "z-separator": "var(--z-border-separator)",
             "z-theme-switcher": "var(--z-border-theme-switcher)",
+          },
+
+          iconColor: {
+            z: "var(--z-icon)",
           },
 
           outlineColor: {

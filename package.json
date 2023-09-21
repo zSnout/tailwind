@@ -1,9 +1,9 @@
 {
   "name": "@zsnout/tailwind",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "A theming style used across all modern zSnout websites.",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zsnout/tailwind.git"
