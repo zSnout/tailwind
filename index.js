@@ -1,12 +1,13 @@
 // @ts-check
 
-import rgba from "color-rgba"
+const rgba = require("color-rgba")
 
-export function zSnoutTheme() {
+module.exports.zSnoutTheme = () => {
   return {
     /** @type {import("tailwindcss/types/config").PluginCreator} */
     handler(api) {
-      const colors = api.theme()?.colors
+      /** @type {import("tailwindcss/types/config").ThemeConfig["colors"]} */
+      const colors = api.theme("colors")
 
       api.addComponents({
         ".z-theme-arc": {
@@ -23,7 +24,7 @@ export function zSnoutTheme() {
           "--z-border-separator": "var(--arc-background-simple-color)",
           "--z-border-theme-switcher": "var(--z-border)",
 
-          "--z-icon-stroke": "var(--arc-palette-foregroundSecondary)",
+          "--z-fa": "var(--arc-palette-foregroundSecondary)",
 
           "--z-ring-focus": "var(--arc-palette-hover)",
 
@@ -76,7 +77,7 @@ export function zSnoutTheme() {
                 "--z-border-separator": value[300],
                 "--z-border-theme-switcher": value[200],
 
-                "--z-icon-stroke": value[500],
+                "--z-fa": value[500],
 
                 "--z-text": value[600],
                 "--z-text-dimmed": value[400],
@@ -93,31 +94,31 @@ export function zSnoutTheme() {
               [".z-dark-" + key]: {
                 "--z-bg-body": value[900],
                 "--z-bg-body-partial": (() => {
-                  const result = rgba(String(value[900]) || "#000") || [0, 0, 0]
+                  const result = rgba(String(value[900] || "#000")) || [0, 0, 0]
                   return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
                 })(),
-                "--z-bg-body-selected": colors[800],
-                "--z-bg-field": colors[800],
-                "--z-bg-field-selected": colors[700],
-                "--z-bg-theme-switcher": colors[800],
+                "--z-bg-body-selected": value[800],
+                "--z-bg-field": value[800],
+                "--z-bg-field-selected": value[700],
+                "--z-bg-theme-switcher": value[800],
 
-                "--z-border": colors[700],
-                "--z-border-selected": colors[600],
-                "--z-border-separator": colors[600],
-                "--z-border-theme-switcher": colors[800],
+                "--z-border": value[700],
+                "--z-border-selected": value[600],
+                "--z-border-separator": value[600],
+                "--z-border-theme-switcher": value[800],
 
-                "--z-icon-stroke": colors[400],
+                "--z-fa": value[400],
 
-                "--z-text": colors[300],
-                "--z-text-dimmed": colors[500],
-                "--z-text-heading": colors[200],
-                "--z-text-subtitle": colors[400],
+                "--z-text": value[300],
+                "--z-text-dimmed": value[500],
+                "--z-text-heading": value[200],
+                "--z-text-subtitle": value[400],
               },
 
               [".z-focus-dark" + key]: {
-                "--z-border-focus": colors[500],
-                "--z-ring-focus": colors[900],
-                "--z-text-link": colors[500],
+                "--z-border-focus": value[500],
+                "--z-ring-focus": value[900],
+                "--z-text-link": value[500],
               },
             })
           }
@@ -370,6 +371,18 @@ export function zSnoutTheme() {
             "open-graph": "40 / 21",
           },
 
+          fontFamily: {
+            hebrew: '"Frank Ruhl Libre", "Times New Roman", "Times", serif',
+          },
+
+          height: {
+            z: "calc(2.5rem + 2px)",
+          },
+
+          width: {
+            z: "calc(2.5rem + 2px)",
+          },
+
           colors: {
             "z-bg-body": "var(--z-bg-body)",
             "z-bg-body-partial": "var(--z-bg-body-partial)",
@@ -383,6 +396,8 @@ export function zSnoutTheme() {
             "z-border-focus": "var(--z-border-focus)",
             "z-border-separator": "var(--z-border-separator)",
             "z-border-theme-switcher": "var(--z-border-theme-switcher)",
+
+            "z-fa": "var(--z-fa)",
 
             "z-ring-focus": "var(--z-ring-focus)",
 
@@ -410,14 +425,6 @@ export function zSnoutTheme() {
             "z-theme-switcher": "var(--z-border-theme-switcher)",
           },
 
-          height: {
-            z: "calc(2.5rem + 2px)",
-          },
-
-          iconStrokeColor: {
-            z: "var(--z-icon-stroke)",
-          },
-
           outlineColor: {
             z: "var(--z-border)",
             "z-focus": "var(--z-border-focus)",
@@ -433,10 +440,6 @@ export function zSnoutTheme() {
             "z-heading": "var(--z-text-heading)",
             "z-link": "var(--z-text-link)",
             "z-subtitle": "var(--z-text-subtitle)",
-          },
-
-          width: {
-            z: "calc(2.5rem + 2px)",
           },
         },
       },
