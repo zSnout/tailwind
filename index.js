@@ -16,6 +16,7 @@ export function zSnoutTheme() {
           "--z-bg-body-selected": "var(--arc-palette-cutoutColor)",
           "--z-bg-field": "#000c",
           "--z-bg-field-selected": "var(--arc-palette-cutoutColor)",
+          "--z-bg-field-selected-hovered": "var(--arc-palette-cutoutColor)",
           "--z-bg-theme-switcher": "var(--arc-palette-cutoutColor)",
 
           "--z-border": "var(--arc-palette-focus)",
@@ -71,6 +72,7 @@ export function zSnoutTheme() {
                 "--z-bg-body-selected": value[200],
                 "--z-bg-field": "#fff",
                 "--z-bg-field-selected": value[200],
+                "--z-bg-field-selected-hovered": value[300],
                 "--z-bg-theme-switcher": value[50],
 
                 "--z-border": value[300],
@@ -102,6 +104,7 @@ export function zSnoutTheme() {
                 "--z-bg-body-selected": value[800],
                 "--z-bg-field": value[800],
                 "--z-bg-field-selected": value[700],
+                "--z-bg-field-selected-hovered": value[600],
                 "--z-bg-theme-switcher": value[800],
 
                 "--z-border": value[700],
