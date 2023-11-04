@@ -433,9 +433,9 @@ export function zSnoutTheme() {
             "z-body": "var(--z-bg-body)",
             "z-body-partial": "var(--z-bg-body-partial)",
             "z-body-selected": "var(--z-bg-body-selected)",
-            "z-body-selected-hovered": "var(--z-bg-body-selected-hovered)",
             "z-field": "var(--z-bg-field)",
             "z-field-selected": "var(--z-bg-field-selected)",
+            "z-field-selected-hovered": "var(--z-bg-field-selected-hovered)",
             "z-theme-switcher": "var(--z-bg-theme-switcher)",
           },
 
