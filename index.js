@@ -409,6 +409,7 @@ export function zSnoutTheme() {
             "z-bg-body-selected": "var(--z-bg-body-selected)",
             "z-bg-field": "var(--z-bg-field)",
             "z-bg-field-selected": "var(--z-bg-field-selected)",
+            "z-bg-field-selected-hovered": "var(--z-bg-field-selected-hovered)",
             "z-bg-theme-switcher": "var(--z-bg-theme-switcher)",
 
             "z-border": "var(--z-border)",
@@ -432,6 +433,7 @@ export function zSnoutTheme() {
             "z-body": "var(--z-bg-body)",
             "z-body-partial": "var(--z-bg-body-partial)",
             "z-body-selected": "var(--z-bg-body-selected)",
+            "z-body-selected-hovered": "var(--z-bg-body-selected-hovered)",
             "z-field": "var(--z-bg-field)",
             "z-field-selected": "var(--z-bg-field-selected)",
             "z-theme-switcher": "var(--z-bg-theme-switcher)",
