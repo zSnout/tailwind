@@ -44,6 +44,24 @@ export function zSnoutTheme() {
                 "color-mix(in oklab, var(--arc-palette-cutoutColor), transparent)",
             },
         },
+
+        ".z-light-mq": {
+          "--z-mq-filled": "var(--z-bg-body)",
+          "--z-mq-filled-selection": "#b4d5fe",
+          "--z-mq-filled-selection-blur": "#d4d4d4",
+          "--z-mq-empty": "#d2d2d2",
+          "--z-mq-empty-selection": "#93afd2",
+          "--z-mq-empty-selection-blur": "#aeaeae",
+        },
+
+        ".z-dark-mq": {
+          "--z-mq-filled": "var(--z-bg-body)",
+          "--z-mq-filled-selection": "#375578",
+          "--z-mq-filled-selection-blur": "#475569",
+          "--z-mq-empty": "#494f5c",
+          "--z-mq-empty-selection": "#4d6b8d",
+          "--z-mq-empty-selection-blur": "#5b6370",
+        },
       })
 
       if (typeof colors == "object" && colors) {
@@ -292,6 +310,18 @@ export function zSnoutTheme() {
                   "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
               },
             },
+
+            "&.ctx": {
+              "&::-webkit-slider-thumb": {
+                "border-color": "var(--z-border-focus)",
+                "--tw-ring-offset-shadow":
+                  "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+                "--tw-ring-shadow":
+                  "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+                "box-shadow":
+                  "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+              },
+            },
           },
 
           "&:where(textarea)": {
@@ -317,6 +347,30 @@ export function zSnoutTheme() {
           },
 
           "&:has(:focus-visible)": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+
+          "&.ctx": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+
+          "&:has(.ctx)": {
             "border-color": "var(--z-border-focus)",
             outline: "2px solid transparent",
             "outline-offset": "2px",
