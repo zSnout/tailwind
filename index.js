@@ -402,6 +402,65 @@ export function zSnoutTheme() {
           },
         },
 
+        ".z-field-focusable": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "--tw-ring-color": "var(--z-ring-focus)",
+          "transition-property":
+            "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "transition-duration": "150ms",
+          appearance: "button",
+
+          "&:focus-visible": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+
+          "&:has(:focus-visible)": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+
+          "&.ctx": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+
+          "&:has(.ctx)": {
+            "border-color": "var(--z-border-focus)",
+            outline: "2px solid transparent",
+            "outline-offset": "2px",
+            "--tw-ring-offset-shadow":
+              "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+            "--tw-ring-shadow":
+              "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+            "box-shadow":
+              "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+          },
+        },
+
         ".z-placeholder": {
           visibility: "hidden",
           color: "transparent",
