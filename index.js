@@ -490,7 +490,7 @@ export function zSnoutTheme() {
         {
           values: {
             ...colors,
-            ...api.theme("iconColor"),
+            ...Object.entries(api.theme("iconColor")).flatMap(([key,value])=>typeof value == 'object'?Object.entries(value).map(([k,value])=>[key+'-'+k,value]):[[key,value]]),
           },
         },
       )
