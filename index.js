@@ -14,6 +14,7 @@ export function zSnoutTheme() {
           "--z-bg-body": "var(--arc-palette-background)",
           "--z-bg-body-partial": "var(--arc-palette-background)",
           "--z-bg-body-selected": "var(--arc-palette-cutoutColor)",
+          "--z-bg-body-selected-partial": "var(--arc-palette-cutoutColor)",
           "--z-bg-field": "#000c",
           "--z-bg-field-selected": "var(--arc-palette-cutoutColor)",
           "--z-bg-field-selected-hovered": "var(--arc-palette-cutoutColor)",
@@ -40,6 +41,8 @@ export function zSnoutTheme() {
             {
               "--z-bg-body-partial":
                 "color-mix(in oklab, var(--arc-palette-background), transparent)",
+              "--z-bg-body-selected-partial":
+                "color-mix(in oklab, var(--arc-palette-cutoutColor), transparent)",
               "--z-bg-field":
                 "color-mix(in oklab, var(--arc-palette-cutoutColor), transparent)",
             },
@@ -88,6 +91,10 @@ export function zSnoutTheme() {
                 "--z-bg-body": "#fff",
                 "--z-bg-body-partial": "#ffffff80",
                 "--z-bg-body-selected": value[200],
+                "--z-bg-body-selected-partial": (() => {
+                  const result = rgba(String(value[200] || "#fff")) || [0, 0, 0]
+                  return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
+                })(),
                 "--z-bg-field": "#fff",
                 "--z-bg-field-selected": value[200],
                 "--z-bg-field-selected-hovered": value[300],
@@ -120,6 +127,10 @@ export function zSnoutTheme() {
                   return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
                 })(),
                 "--z-bg-body-selected": value[800],
+                "--z-bg-body-selected-partial": (() => {
+                  const result = rgba(String(value[800] || "#000")) || [0, 0, 0]
+                  return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
+                })(),
                 "--z-bg-field": value[800],
                 "--z-bg-field-selected": value[700],
                 "--z-bg-field-selected-hovered": value[600],
@@ -489,8 +500,26 @@ export function zSnoutTheme() {
         },
         {
           values: {
-            ...colors,
-            ...Object.entries(api.theme("iconColor")).flatMap(([key,value])=>typeof value == 'object'?Object.entries(value).map(([k,value])=>[key+'-'+k,value]):[[key,value]]),
+            ...Object.fromEntries(
+              Object.entries(api.theme("iconColor")).flatMap(([key, value]) =>
+                typeof value == "object"
+                  ? Object.entries(value).map(([k, value]) => [
+                      key + "-" + k,
+                      value,
+                    ])
+                  : [[key, value]],
+              ),
+            ),
+            ...Object.fromEntries(
+              Object.entries(colors).flatMap(([key, value]) =>
+                typeof value == "object"
+                  ? Object.entries(value).map(([k, value]) => [
+                      key + "-" + k,
+                      value,
+                    ])
+                  : [[key, value]],
+              ),
+            ),
           },
         },
       )
@@ -520,6 +549,7 @@ export function zSnoutTheme() {
             "z-bg-body": "var(--z-bg-body)",
             "z-bg-body-partial": "var(--z-bg-body-partial)",
             "z-bg-body-selected": "var(--z-bg-body-selected)",
+            "z-bg-body-selected-partial": "var(--z-bg-body-selected-partial)",
             "z-bg-field": "var(--z-bg-field)",
             "z-bg-field-selected": "var(--z-bg-field-selected)",
             "z-bg-field-selected-hovered": "var(--z-bg-field-selected-hovered)",
@@ -546,6 +576,7 @@ export function zSnoutTheme() {
             "z-body": "var(--z-bg-body)",
             "z-body-partial": "var(--z-bg-body-partial)",
             "z-body-selected": "var(--z-bg-body-selected)",
+            "z-body-selected-partial": "var(--z-bg-body-selected-partial)",
             "z-field": "var(--z-bg-field)",
             "z-field-selected": "var(--z-bg-field-selected)",
             "z-field-selected-hovered": "var(--z-bg-field-selected-hovered)",

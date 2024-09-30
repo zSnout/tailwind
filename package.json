@@ -1,6 +1,6 @@
 {
   "name": "@zsnout/tailwind",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A theming style used across all modern zSnout websites.",
   "main": "index.js",
   "type": "module",
