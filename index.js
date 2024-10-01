@@ -13,6 +13,8 @@ export function zSnoutTheme() {
         ".z-arc": {
           "--z-bg-body": "var(--arc-palette-background)",
           "--z-bg-body-partial": "var(--arc-palette-background)",
+          "--z-bg-body-darkened": "var(--arc-palette-background)",
+          "--z-bg-body-darkened-partial": "var(--arc-palette-background)",
           "--z-bg-body-selected": "var(--arc-palette-cutoutColor)",
           "--z-bg-body-selected-partial": "var(--arc-palette-cutoutColor)",
           "--z-bg-field": "#000c",
@@ -40,9 +42,11 @@ export function zSnoutTheme() {
           "@supports (color: color-mix(in oklab, var(--arc-palette-cutoutColor), transparent))":
             {
               "--z-bg-body-partial":
-                "color-mix(in oklab, var(--arc-palette-background), transparent)",
+                "color-mix(in oklab, var(--z-bg-body), transparent)",
+              "--z-bg-body-darkened-partial":
+                "color-mix(in oklab, var(--z-bg-body-darkened), transparent)",
               "--z-bg-body-selected-partial":
-                "color-mix(in oklab, var(--arc-palette-cutoutColor), transparent)",
+                "color-mix(in oklab, var(--bg-body-selected), transparent)",
               "--z-bg-field":
                 "color-mix(in oklab, var(--arc-palette-cutoutColor), transparent)",
             },
@@ -90,6 +94,11 @@ export function zSnoutTheme() {
               [".z-light-" + key]: {
                 "--z-bg-body": "#fff",
                 "--z-bg-body-partial": "#ffffff80",
+                "--z-bg-body-darkened": value[100],
+                "--z-bg-body-darkened-partial": (() => {
+                  const result = rgba(String(value[100] || "#fff")) || [0, 0, 0]
+                  return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
+                })(),
                 "--z-bg-body-selected": value[200],
                 "--z-bg-body-selected-partial": (() => {
                   const result = rgba(String(value[200] || "#fff")) || [0, 0, 0]
@@ -123,6 +132,11 @@ export function zSnoutTheme() {
               [".z-dark-" + key]: {
                 "--z-bg-body": value[900],
                 "--z-bg-body-partial": (() => {
+                  const result = rgba(String(value[900] || "#000")) || [0, 0, 0]
+                  return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
+                })(),
+                "--z-bg-body-darkened": value[900],
+                "--z-bg-body-darkened-partial": (() => {
                   const result = rgba(String(value[900] || "#000")) || [0, 0, 0]
                   return `rgb(${result[0]} ${result[1]} ${result[2]} / 0.5)`
                 })(),
@@ -548,6 +562,8 @@ export function zSnoutTheme() {
           colors: {
             "z-bg-body": "var(--z-bg-body)",
             "z-bg-body-partial": "var(--z-bg-body-partial)",
+            "z-bg-body-darkened": "var(--z-bg-body-darkened)",
+            "z-bg-body-darkened-partial": "var(--z-bg-body-darkened-partial)",
             "z-bg-body-selected": "var(--z-bg-body-selected)",
             "z-bg-body-selected-partial": "var(--z-bg-body-selected-partial)",
             "z-bg-field": "var(--z-bg-field)",
@@ -575,6 +591,8 @@ export function zSnoutTheme() {
           backgroundColor: {
             "z-body": "var(--z-bg-body)",
             "z-body-partial": "var(--z-bg-body-partial)",
+            "z-body-darkened": "var(--z-bg-body-darkened)",
+            "z-body-darkened-partial": "var(--z-bg-body-darkened-partial)",
             "z-body-selected": "var(--z-bg-body-selected)",
             "z-body-selected-partial": "var(--z-bg-body-selected-partial)",
             "z-field": "var(--z-bg-field)",
